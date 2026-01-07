@@ -4,10 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Live ISO Download</title>
+    <meta name="description" content="Bootable NixOS live environment for diagnosing and fixing storage issues. Includes GNOME desktop, filesystem tools, and development IDEs.">
     <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     <link rel="stylesheet" href="styles.css">
     <script defer src="theme.js"></script>
     <script defer src="includes.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AI Live ISO",
+      "description": "A bootable live environment for diagnosing and fixing storage issues without booting the host operating system. Includes comprehensive filesystem tools, GNOME desktop, and development IDEs.",
+      "applicationCategory": "SystemUtility",
+      "operatingSystem": "Linux",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "softwareVersion": "1.0",
+      "releaseNotes": "Initial release with GNOME desktop, custom boot splash, direct boot, and comprehensive filesystem support.",
+      "downloadUrl": "https://github.com/Leopere/ai-live-colinknapp-com/releases/latest",
+      "fileSize": "3.4 GB",
+      "screenshot": "https://leopere.github.io/ai-live-colinknapp-com/favicon.svg",
+      "featureList": [
+        "GNOME Desktop with autologin",
+        "Custom boot splash screen",
+        "Direct boot (no menu)",
+        "Comprehensive filesystem support (NTFS, exFAT, BTRFS, XFS, HFS+)",
+        "Disk usage visualizers (baobab, ncdu, duf, gdmap)",
+        "Cursor IDE and Antigravity IDE",
+        "WiFi control via NetworkManager",
+        "Firefox web browser",
+        "Passwordless sudo"
+      ],
+      "systemRequirements": {
+        "@type": "SystemRequirements",
+        "processorRequirements": "x86_64",
+        "memoryRequirements": "4 GB RAM minimum",
+        "storageRequirements": "8 GB USB drive minimum"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "AI Live ISO Project",
+        "url": "https://github.com/Leopere/ai-live-colinknapp-com"
+      },
+      "license": "https://github.com/Leopere/ai-live-colinknapp-com/blob/main/LICENSE"
+    }
+    </script>
 </head>
 <body>
     <!-- Header Include -->
