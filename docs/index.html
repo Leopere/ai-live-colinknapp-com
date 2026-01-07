@@ -14,7 +14,7 @@
     
     <div class="container-fluid" role="main" id="main-content">
         <h1>AI Live ISO</h1>
-        <p class="subtitle">Custom bootable live environment with GNOME, development tools, and more</p>
+        <p class="subtitle">A purpose-built live environment for diagnosing and fixing common host machine storage issues (without booting the host OS).</p>
         
         <div class="download-section">
             <a href="./nixos-custom.iso" class="download-btn" download>
@@ -27,6 +27,20 @@
         </div>
         
         <hr>
+
+        <section class="section">
+            <h2>Why this exists</h2>
+            <p>I wanted a faster way to isolate filesystem issues and recover important data from a host machine without touching the host OS.</p>
+            <p>This started with my Dad: his Windows machine had a completely full <code>C:\</code> drive, which made it basically unusable. He also didn’t want to lose what he had archived.</p>
+            <p>So I built a custom live image equipped with the filesystem tools we use for diagnosis and recovery. It’s designed to let you mount the host disks, point your CLI tools at the host machine’s files, back up what matters, and then (once you’re safe) do things like partition resizing so it’s not a recurring problem.</p>
+        </section>
+
+        <section class="section">
+            <h2>Safety / YMMV</h2>
+            <p>I’ve done all of this manually and it’s very easy to make mistakes with disk operations.</p>
+            <p><strong>There is no assurance of data safety.</strong> Make sure you understand what you’re asking the tools to do. If you’re not sure, stop and make a backup first.</p>
+            <p>Over time, I may add more tools to validate that the host hardware itself looks healthy and safe to keep using. For now, this is what’s included as of today.</p>
+        </section>
         
         <div class="features">
             <h2>Features</h2>
@@ -65,7 +79,7 @@
             <ol>
                 <li>Download the ISO file using the button above</li>
                 <li>Flash to a USB drive (8GB+ recommended):
-                    <br><code>sudo dd if=ai-live.iso of=/dev/diskX bs=64M status=progress</code>
+                    <br><code>sudo dd if=nixos-custom.iso of=/dev/diskX bs=64M status=progress</code>
                 </li>
                 <li>Boot from USB (usually F12, F2, or Del during startup)</li>
                 <li>System boots directly into GNOME - no login required!</li>
