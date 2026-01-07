@@ -15,7 +15,7 @@
     
     <div class="container-fluid" role="main" id="main-content">
         <h1>AI Live ISO</h1>
-        <p class="subtitle">A purpose-built live environment for diagnosing and fixing common host machine storage issues (without booting the host OS).</p>
+        <p class="subtitle">A bootable live environment for diagnosing and fixing storage issues without booting the host operating system.</p>
         
         <div class="download-section">
             <a href="./nixos-custom.iso" class="download-btn" download>
@@ -30,17 +30,16 @@
         <hr>
 
         <section class="section">
-            <h2>Why this exists</h2>
-            <p>I wanted a faster way to isolate filesystem issues and recover important data from a host machine without touching the host OS.</p>
-            <p>This started with my Dad: his Windows machine had a completely full <code>C:\</code> drive, which made it basically unusable. He also didn’t want to lose what he had archived.</p>
-            <p>So I built a custom live image equipped with the filesystem tools we use for diagnosis and recovery. It’s designed to let you mount the host disks, point your CLI tools at the host machine’s files, back up what matters, and then (once you’re safe) do things like partition resizing so it’s not a recurring problem.</p>
+            <h2>About</h2>
+            <p>This live ISO was built to help diagnose and fix filesystem issues on host machines without needing to boot the host OS. It includes the tools needed to mount host disks, analyze storage usage, back up important data, and perform partition operations.</p>
+            <p>The project started when a family member's Windows machine became unusable due to a full <code>C:\</code> drive. Rather than risk data loss, I created a custom live environment that could safely access the host filesystem, back up critical files, and resize partitions to prevent the issue from recurring.</p>
         </section>
 
         <section class="section">
-            <h2>Safety / YMMV</h2>
-            <p>I’ve done all of this manually and it’s very easy to make mistakes with disk operations.</p>
-            <p><strong>There is no assurance of data safety.</strong> Make sure you understand what you’re asking the tools to do. If you’re not sure, stop and make a backup first.</p>
-            <p>Over time, I may add more tools to validate that the host hardware itself looks healthy and safe to keep using. For now, this is what’s included as of today.</p>
+            <h2>Important Safety Notice</h2>
+            <p><strong>Use at your own risk.</strong> Disk operations can cause permanent data loss if performed incorrectly. This tool provides no guarantee of data safety.</p>
+            <p>Always back up important data before attempting any disk operations. Make sure you understand what each command does before running it. If you're uncertain, stop and seek help from someone experienced with disk management.</p>
+            <p>Future versions may include additional hardware validation tools. The current release includes the filesystem and diagnostic tools available as of the build date.</p>
         </section>
         
         <div class="features">
@@ -52,7 +51,7 @@
                 </div>
                 <div class="feature-card">
                     <h3>Development Tools</h3>
-                    <p>Cursor IDE and Antigravity IDE pre-installed and ready to use</p>
+                    <p>Cursor IDE and Antigravity IDE pre-installed for scripting and automation</p>
                 </div>
                 <div class="feature-card">
                     <h3>Filesystem Support</h3>
