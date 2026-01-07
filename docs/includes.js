@@ -91,8 +91,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Set active class based on current path
             if (currentPath === '/' || currentPath === '/index.html' || currentPath.endsWith('/')) {
-                const nixosLink = document.getElementById('nav-nixos');
-                if (nixosLink) nixosLink.classList.add('active');
+                const aiLiveLink = document.getElementById('nav-ailive');
+                if (aiLiveLink) aiLiveLink.classList.add('active');
             }
         }, 100); // Small delay to ensure the DOM is updated
     }
@@ -174,9 +174,96 @@ document.addEventListener('DOMContentLoaded', function () {
     const headerElement = document.getElementById('header-include');
     const footerElement = document.getElementById('footer-include');
 
+    // Setup dropdown behavior with delay
+    function setupNavDropdowns() {
+        const dropdowns = document.querySelectorAll('.main-nav .dropdown');
+        let timeoutId;
+
+        dropdowns.forEach(dropdown => {
+            // Mouse interactions
+            dropdown.addEventListener('mouseenter', () => {
+                clearTimeout(timeoutId);
+                dropdowns.forEach(d => {
+                    if (d !== dropdown) {
+                        d.querySelector('.dropdown-content').style.display = 'none';
+                        d.querySelector('.dropdown-content').style.opacity = '0';
+                        d.querySelector('.dropdown-content').style.visibility = 'hidden';
+                    }
+                });
+
+                const dropdownContent = dropdown.querySelector('.dropdown-content');
+                dropdownContent.style.display = 'block';
+                // Small delay to allow CSS transition to work properly
+                setTimeout(() => {
+                    dropdownContent.style.opacity = '1';
+                    dropdownContent.style.visibility = 'visible';
+                }, 10);
+            });
+
+            dropdown.addEventListener('mouseleave', () => {
+                const dropdownContent = dropdown.querySelector('.dropdown-content');
+                // Add delay before hiding the dropdown
+                timeoutId = setTimeout(() => {
+                    dropdownContent.style.opacity = '0';
+                    dropdownContent.style.visibility = 'hidden';
+                    // Wait for transition to complete before changing display
+                    setTimeout(() => {
+                        if (dropdownContent.style.opacity === '0') {
+                            dropdownContent.style.display = 'none';
+                        }
+                    }, 200);
+                }, 300); // 300ms delay before starting to close
+            });
+
+            // Keyboard interactions
+            const dropdownLink = dropdown.querySelector('a');
+            dropdownLink.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    const dropdownContent = dropdown.querySelector('.dropdown-content');
+                    dropdownContent.style.display = 'block';
+                    setTimeout(() => {
+                        dropdownContent.style.opacity = '1';
+                        dropdownContent.style.visibility = 'visible';
+
+                        // Focus the first link in the dropdown
+                        const firstLink = dropdownContent.querySelector('a');
+                        if (firstLink) firstLink.focus();
+                    }, 10);
+                }
+            });
+
+            // Add keyboard navigation for dropdown items
+            const dropdownLinks = dropdown.querySelectorAll('.dropdown-content a');
+            dropdownLinks.forEach((link, index) => {
+                link.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        const nextLink = dropdownLinks[index + 1] || dropdownLinks[0];
+                        nextLink.focus();
+                    } else if (e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        const prevLink = dropdownLinks[index - 1] || dropdownLinks[dropdownLinks.length - 1];
+                        prevLink.focus();
+                    } else if (e.key === 'Escape') {
+                        e.preventDefault();
+                        dropdown.querySelector('a').focus();
+                        const dropdownContent = dropdown.querySelector('.dropdown-content');
+                        dropdownContent.style.opacity = '0';
+                        dropdownContent.style.visibility = 'hidden';
+                        setTimeout(() => {
+                            dropdownContent.style.display = 'none';
+                        }, 200);
+                    }
+                });
+            });
+        });
+    }
+
     if (headerElement) {
         includeHTML('header-include', './includes/header.html', () => {
             setActiveNavItem();
+            setupNavDropdowns();
             initThemeToggle();
         });
     }

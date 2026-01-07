@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NixOS Live ISO Download</title>
+    <title>AI Live ISO Download</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="theme.js"></script>
     <script defer src="includes.js"></script>
@@ -13,19 +13,16 @@
     <div id="header-include"></div>
     
     <div class="container-fluid" role="main" id="main-content">
-        <h1>NixOS Live ISO</h1>
+        <h1>AI Live ISO</h1>
         <p class="subtitle">Custom bootable live environment with GNOME, development tools, and more</p>
         
         <div class="download-section">
-            <a href="https://github.com/Leopere/ai-live-colinknapp-com/releases/latest" class="download-btn" target="_blank">
+            <a href="./nixos-custom.iso" class="download-btn" download>
                 Download Latest ISO
             </a>
             <div class="iso-info">
-                <p><strong>Latest Build:</strong> <span id="build-date">Check GitHub Releases</span></p>
-                <p><strong>Size:</strong> ~3.3 GB</p>
-                <p style="margin-top: 10px; font-size: 0.85em; color: var(--date-color);">
-                    ISO is built locally and uploaded to GitHub Releases
-                </p>
+                <p><strong>Latest Build:</strong> <span id="build-date">Check repository</span></p>
+                <p><strong>Size:</strong> ~3.4 GB</p>
             </div>
         </div>
         
@@ -68,7 +65,7 @@
             <ol>
                 <li>Download the ISO file using the button above</li>
                 <li>Flash to a USB drive (8GB+ recommended):
-                    <br><code>sudo dd if=nixos-custom.iso of=/dev/diskX bs=64M status=progress</code>
+                    <br><code>sudo dd if=ai-live.iso of=/dev/diskX bs=64M status=progress</code>
                 </li>
                 <li>Boot from USB (usually F12, F2, or Del during startup)</li>
                 <li>System boots directly into GNOME - no login required!</li>

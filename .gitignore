@@ -1,4 +1,5 @@
 # Build artifacts
+nixos-custom.iso
 result
 result-*
 
