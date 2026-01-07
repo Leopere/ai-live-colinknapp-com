@@ -1,0 +1,24 @@
+# Build artifacts
+nixos-custom.iso
+result
+result-*
+
+# Build logs
+build.log
+*.log
+
+# Nix store links
+result
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+

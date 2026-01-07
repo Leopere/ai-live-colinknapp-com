@@ -1,0 +1,9 @@
+[Plymouth Theme]
+Name=Custom Boot Logo
+Description=Custom boot splash with logo
+ModuleName=script
+
+[script]
+ImageDir=.
+ScriptFile=plymouth.script
+
