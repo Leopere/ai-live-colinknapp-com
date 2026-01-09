@@ -24,7 +24,7 @@
       },
       "softwareVersion": "1.0",
       "releaseNotes": "Initial release with GNOME desktop, custom boot splash, direct boot, and comprehensive filesystem support.",
-      "downloadUrl": "https://leopere.github.io/ai-live-colinknapp-com/nixos-custom.iso",
+      "downloadUrl": "https://github.com/Leopere/ai-live-colinknapp-com/releases/download/v1.0.0/nixos-custom.iso.zip",
       "fileSize": "3.4 GB",
       "screenshot": "https://leopere.github.io/ai-live-colinknapp-com/favicon.svg",
       "featureList": [
@@ -62,12 +62,19 @@
         <p class="subtitle">A bootable live environment for diagnosing and fixing storage issues without booting the host operating system.</p>
         
         <div class="download-section">
-            <a href="https://leopere.github.io/ai-live-colinknapp-com/nixos-custom.iso" class="download-btn" download>
-                Download Latest ISO
-            </a>
+            <p><strong>Download the ISO (multi-part zip):</strong></p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 20px 0;">
+                <a href="https://github.com/Leopere/ai-live-colinknapp-com/releases/download/v1.0.0/nixos-custom.iso.z01" class="download-btn" download>
+                    Download Part 1 (1.9 GB)
+                </a>
+                <a href="https://github.com/Leopere/ai-live-colinknapp-com/releases/download/v1.0.0/nixos-custom.iso.zip" class="download-btn" download>
+                    Download Part 2 (1.5 GB)
+                </a>
+            </div>
             <div class="iso-info">
                 <p><strong>Latest Build:</strong> <span id="build-date">Check repository</span></p>
-                <p><strong>Size:</strong> ~3.4 GB</p>
+                <p><strong>Total Size:</strong> ~3.4 GB (compressed into 2 parts)</p>
+                <p><strong>Note:</strong> You need to download both parts and extract them together. Use: <code>zip -F nixos-custom.iso.zip --out nixos-custom.iso</code> or simply extract the .zip file (it will automatically use the .z01 part).</p>
             </div>
         </div>
         
@@ -121,7 +128,10 @@
         <div class="instructions">
             <h3>Quick Start Instructions</h3>
             <ol>
-                <li>Download the ISO file using the button above</li>
+                <li>Download both zip parts using the buttons above</li>
+                <li>Extract the ISO from the multi-part zip:
+                    <br><code>zip -F nixos-custom.iso.zip --out nixos-custom.iso</code>
+                    <br>Or simply extract the .zip file (most zip tools will automatically use the .z01 part)</li>
                 <li>Flash to a USB drive (8GB+ recommended):
                     <br><code>sudo dd if=nixos-custom.iso of=/dev/diskX bs=64M status=progress</code>
                 </li>
