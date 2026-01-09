@@ -6,6 +6,7 @@ on:
     paths:
       - 'docs/**'
       - '.github/workflows/pages.yml'
+      - 'nixos-custom.iso'
   workflow_dispatch:
 
 jobs:
@@ -22,6 +23,12 @@ jobs:
     - name: Setup Pages
       uses: actions/configure-pages@v4
       
+    - name: Copy ISO to docs
+      run: |
+        if [ -f nixos-custom.iso ]; then
+          cp nixos-custom.iso docs/
+        fi
+        
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
