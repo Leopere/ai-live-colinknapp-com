@@ -1,6 +1,9 @@
 # Build artifacts
 result
 result-*
+nixos-custom.iso
+nixos-custom.iso.zip
+nixos-custom.iso.z*
 
 # Build logs
 build.log
@@ -8,6 +11,10 @@ build.log
 
 # Nix store links
 result
+
+# Environment variables
+.env
+.env.local
 
 # macOS
 .DS_Store
